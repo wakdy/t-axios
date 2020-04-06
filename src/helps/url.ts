@@ -15,10 +15,10 @@ function encode(val: string): string {
 export function buildUrl(url: string, params: paramsObject = {}): string {
   const parts: string[] = [];
   Object.keys(params).forEach(key => {
-    let val = params[key];
+    const val = params[key];
     let values = [];
     if (Array.isArray(val)) {
-      key = key + '[]';
+      key = `${key}[]`;
       values = val;
     } else {
       values = [val];
@@ -34,7 +34,7 @@ export function buildUrl(url: string, params: paramsObject = {}): string {
   });
   const serialized: string = parts.join('&');
   if (serialized) {
-    let index = url.indexOf('#');
+    const index = url.indexOf('#');
     if (index > -1) {
       url = url.slice(0, index);
     }

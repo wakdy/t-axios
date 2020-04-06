@@ -39,7 +39,14 @@ module.exports = {
         enforce: 'pre',
         use: [
           {
-            loader: 'tslint-loader'
+            loader: 'tslint-loader',
+            options:{
+              configuration: {
+                rules: {
+                  "no-parameter-reassignment":false
+                }
+              }
+            }
           }
         ]
       },
